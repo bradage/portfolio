@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="author" content="Bradey Merrill">
+  <meta name="description" content="W2 Group">
+
+  <title>W2 Group Assignment</title>
+
+  <script>
+    function displayText() {
+      let txtInput = document.getElementById('input1').value;
+
+      document.getElementById('div1').innerHTML = txtInput;
+    }
+
+    function sumItUp() {
+      let myNum = document.getElementById('numInput').value;
+
+      let answer = "";
+
+      if (isNaN(myNum) || parseInt(myNum) < 1) {
+        answer = myNum + " is not a valid number. Please enter a number that is greater than 0.";
+      } else {
+        let mn = parseInt(myNum);
+
+        let numbers = 0;
+        for (let i = 0; i <= mn; i++) {
+          numbers += i;
+        }
+
+        answer = numbers.toString();
+      }
+
+      document.getElementById('div2').innerHTML = answer;
+
+    }
+
+    function addItUp() {
+      let n1 = parseInt(document.getElementById('num1').value);
+      let n2 = parseInt(document.getElementById('num2').value);
+    
+      let answer = n1 + n2;
+
+      document.getElementById('div3').innerHTML = answer;
+    }
+  </script>
+</head>
+
+
+
+<body>
+  <section class="part1">
+    <h2>Display Input</h2>
+    <p>Exercise 1</p>
+    <label>Text Data</label>
+    <input type="text" id="input1">
+    <button type="button" onclick="displayText()">Do Something</button>
+    <div id="div1"></div>
+  </section>
+  <hr>
+  <section class="part2">
+    <h2>Sum of Numbers</h2>
+    <p>Enter in a number, then click the button below to sum all the numbers up to the number provided.</p>
+    <p>ex. If you enter 5 you will receive an output of 15 because 1+2+3+4+5 = 15.</p>
+    <lable>Enter your number choice here: </lable>
+    <input type="number" id="numInput">
+    <button type="button" onclick="sumItUp()">Get Sum</button>
+    <div id="div2"></div>
+  </section>
+  <hr>
+  <section class="part3">
+    <h2>Adding Machine</h2>
+    <p>Enter 2 number below and click the '+' button to see the sum of the numbers entered.</p>
+    <label>First Number</label>
+    <input type="number" id="num1"> 
+    <label>Second Number</label>
+    <input type="number" id="num2">
+    <button type="button" onclick="addItUp()">+</button>
+    <div id="div3"></div>
+  </section>
+</body>
+
+</html>
