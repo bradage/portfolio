@@ -17,22 +17,132 @@
 
 <body>
   <article>
-    <h2>Notes from Reading</h2>
-    <p>
-      toFixed() method rounds a number to a fixed number of decimal places. 
-    </p>
-    <p class="example">
-      const PI = 3.1415926;<br>
-      PI.toFixed(3) would produce 3.142
-    </p>
-    <p>
-      toPrecision() method rounds a number to a fixed number of significant figures that is once again returned as a string (and often using exponential notation.)
-    </p>
-    <p class="example">
-      2.459.toPrecision(2); <br>
-      Would produce "2.5"
-    </p>
-
+    <section>
+      <h2>Chapter 2 Reading Notes</h2>
+      <p>
+        toFixed() method rounds a number to a fixed number of decimal places.
+      </p>
+      <p class="example">
+        const PI = 3.1415926;<br>
+        PI.toFixed(3) would produce 3.142
+      </p>
+      <p>
+        toPrecision() method rounds a number to a fixed number of significant figures that is once again returned as a
+        string (and often using exponential notation.)
+      </p>
+      <p class="example">
+        2.459.toPrecision(2); <br>
+        Would produce "2.5"
+      </p>
+    </section>
+    <hr>
+    <section>
+      <h2>Chapter 3 Reading Notes</h2>
+      <p>
+        deleting in an array is pretty simple, but it will lleave the value as 'undefined'
+      </p>
+      <p class="example">
+        avengers = ['cap America, 'Fe Man', 'Thor', 'Hulk Smash'];<br>
+        delete avengers[3]<br>
+        avengers would now display as: ['cap America, 'Fe Man', 'Thor', undefined]
+      </p>
+      <p>
+        pop() returns the last item of the array and removes it.
+      </p>
+      <p class="example">
+        avengers.pop();<br>
+        This would return 'Thor' and then remove that entry.
+      </p>
+      <p>
+        shift() returns the first item of the array and removes it.
+      </p>
+      <p class="example">
+        avengers.shift();<br>
+        This would return 'cap America' and then remove that entry.
+      </p>
+      <p>
+        Converting Sets into Arrays is done vea the spread operator.
+      </p>
+      <p class="example">
+        shoppingSet = new Set().add('Apples').add('Bananas').add('Beans');<br>
+        shoppingArray = [...shoppingSet]<br>
+        Would then output ['Apples', 'Bananas', 'Beans']
+      </p>
+    </section>
+    <hr>
+    <section>
+      <h2>Chapter 4 Reading Notes</h2>
+      <p>
+        Function expression is done by assigning an anonymous function to a variable (function with no name)
+      </p>
+      <p class="example">
+        const goodbye = function() {<br>
+        console.log('goodbye World!');<br>
+        };
+      </p>
+      <p>
+        Function expression is done by assigning an named function to a variable
+      </p>
+      <p class="example">
+        const goodbye = function bye() {<br>
+        console.log('goodbye World!');<br>
+        };
+      </p>
+      <p>
+        though not recommended, you can also create a function via the Function() Constructor.
+      </p>
+      <p class="example">
+        const hi = new Function('console.log("Hi World!");');
+      </p>
+      <p>
+        Default parameters can be done by assigning them in the function declaration.
+      </p>
+      <p class="example">
+        function hello(name='World'){<br>
+        console.log(`hello ${name}!);<br>
+        }
+      </p>
+      <p>
+        Arrow functions havae a number of advantages over other ways of declaring functions:
+        <ul>
+          <li>They are much less verbose than normal function declarations.</li>
+          <li>Single parameters don’t need putting into parentheses.</li>
+          <li>The body of the function doesn’t need placing inside a block if it’s only one
+            line.</li>
+          <li>The return keyword isn’t required if the return statement is the only
+            statement in the body of the function.</li>
+          <li>They don’t bind their own value of this to the function (we’ll see why this is
+            a particularly useful property when we cover objects later in the book)</li>
+        </ul>
+      </p>
+      <p class="example">
+        const add = (x,y) => x + y; <br>
+        <br>
+        const hellp = () => alert('Hello World!');<br>
+        <br>
+        const tax = (salary) => {<br>
+          const taxable = salary - 8000;<br>
+          const lowerRate = 0.25 * taxable;<br>
+          taxable = taxable - 20000;<br>
+          const higherRate = 0.4 * taxable;<br>
+          return lowerRate + higherRate;<br>
+          }
+      </p>
+      <p>
+        The reduce() method is another method that iterates over each value in the array, but this time it cumulatively combines each result to return just a single value.
+      </p>
+      <p class="example">
+        [1,2,3,4,5].reduce( (acc,val) => prev + val );<br>
+        this would output 15
+      </p>
+      <p>
+        The filter() method returns a new array that only contains items from the original array that return true when passed to the callback.
+      </p>
+      <p class="example">
+        const numbers = [ 2, 7, 6, 5, 11, 23, 12 ] numbers.filter(x => x%2 === 0 ); // this returns true if the number is even <br>
+        this woudl output [ 2, 6, 12 ]
+      </p>
+    </section>
   </article>
 </body>
 
