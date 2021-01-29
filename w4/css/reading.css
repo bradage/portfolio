@@ -3,6 +3,11 @@
   border: solid grey 1px;
 }
 
+article {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* .example::before {
   content: normal;
 } */

@@ -9,21 +9,40 @@
 
   <link rel="stylesheet" href="css/reading.css">
 
-  <title>W2 Reading</title>
+  <title>W4 Reading</title>
 
 </head>
-
-
 
 <body>
   <article>
     <section>
       <h2>Chapter 8 Forms</h2>
       <p>
-        
+        Forms from document are a collection and therefore, need to be accessed via index.<br>
+        Ways to access form in Javascript
       </p>
       <p class="example">
-        
+        const form = document.forms[0];<br>
+        const form = document.getElementsByTagname('form')[0];<br>
+        const form = document.forms.search;<br>
+        const form = document.forms.[search]; --safest way and required if name attribute contains invalid characters
+      </p>
+      <p>
+        A form can be submitted manually by the user employing a button or input
+        element with a type attribute of submit, or even an input element with a type
+        attribute of image:
+      </p>
+      <p class="example">
+        &lt;button type='submit'&gt;Submit&lt;/button&gt;<br>
+        &lt;input type='submit' value='Submit'&gt;<br>
+        &lt;input type='image' src='button.png'&gt;
+      </p>
+      <p>
+        The form.action property can be used to set the action attribute of a form, so it’s
+        sent to a different URL to be processed on the server:
+      </p>
+      <p class="example">
+        form.action = '/an/other.url'
       </p>
     </section>
     <hr>
