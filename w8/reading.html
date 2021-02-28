@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="author" content="Bradey Merrill">
+  <meta name="description" content="W2 Reading">
+
+  <link rel="stylesheet" href="css/reading.css">
+
+  <title>W4 Reading</title>
+
+</head>
+
+<body>
+  <article>
+    <section>
+      <h2>Chapter 8 Transforms and Transitions</h2>
+      <p>
+        Transform and translate
+      </p>
+      <p class="example">
+        transform: translate(45px, -45px);<br>
+        To move 45px to the right along the x axis, include:<br>
+        transform: translateX(45px); <br>
+        To move up along the y axis by 30px, include: <br>
+        transform: translateY(-30px);
+      </p>
+      <p>
+        Scaling
+      </p>
+      <p class="example">
+        transform: scale(1.5, 0.25);<br>
+      </p>
+      <p>
+        Rotation
+      </p>
+      <p class="example">
+        .ad-ad2 h1:hover span {<br>
+        color: #484848;<br>
+        transform: rotate(10deg) translateX(40px) scale(1.5);<br>
+        }
+      </p>
+      <p>
+        Skew
+      </p>
+      <p class="example">
+        transform: skew(15deg, 4deg);
+        }
+      </p>
+    </section>
+    <hr>
+    <section>
+      <h2>Chapter 12 Canvas, SVG, and Drag and Drop</h2>
+      <p>
+        Drawing on Canvas
+      </p>
+      <p class="example">
+        var canvas = document.getElementById("myCanvas");<br>
+        var context = canvas.getContext("2d");<br>
+        context.strokeStyle = "red";<br>
+        context.fillStyle = "rgba(0, 0, 255, 0.5)";<br>
+        context.fillRect(10, 10, 100, 100);<br>
+        context.strokeRect(10, 10, 100, 100);<br>
+      </p>
+      <p>
+        SVG
+      </p>
+      <p class="example">
+        <svg class="svgcontainer">
+          <polygon points="200,10 250,150 125,75 275,75 150,150 " class="poly" />
+        </svg>
+      </p>
+    </section>
+    <p>
+      Drag and Drop
+    </p>
+    <p class="example">
+
+    </p>
+    </section>
+  </article>
+</body>
+
+</html>

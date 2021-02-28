@@ -1,39 +1,68 @@
 //Declare const for URL
 const apiURL = "https://swapi.dev/api/people"
 
-// fetch('https://swapi.dev/api/people', {
-//         headers: {
-//             "Access-Control-Allow-Origin": '*'
-//         }
-//     })
-//     .then(res => console.log(res))
+function fetcher() {
+    fetchThis(apiURL);
+}
 
-
-// fetch(apiURL)
-//     .then(function (response) {
-//         if (!response.ok) {
-//             throw Error(response.statusText);
-//         } else {
-//             return response.json();
-//         }
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     });
 //Create Fetch
-fetch(apiURL)
-    .then(response => response.json())
-    .then(function (jsonObject) {
-        const results = jsonObject['results'];
-        for (let i = 0; i < results.length; i++) {
-            let person = document.createElement('div');
-            person.className = 'persons';
-            let name = document.createElement('h3');
+function fetchThis(url) {
+    fetch(url)
+        .then(response => response.json())
+        .then(function (jsonObject) {
+            let prevButton = document.createElement('button');
 
-            name.textContent = results[i].name;
+            let results = jsonObject['results'];
+            for (let i = 0; i < results.length; i++) {
+                let person = document.createElement('div');
+                person.className = 'persons';
+                let name = document.createElement('h3');
 
-            person.appendChild(name);
+                name.textContent = results[i].name;
 
-            document.querySelector('div.starwarspeople').appendChild(person);
-        }
-    });
+                person.appendChild(name);
+
+                document.querySelector('div.starwarspeople').appendChild(person);
+            }
+
+            if (jsonObject.previous) {
+                prevButton(jsonObject);
+            }
+
+
+            if (jsonObject.next) {
+                nextButton(jsonObject);
+            }
+
+        });
+}
+
+function nextButton(jsonObject) {
+    let nextPage = jsonObject['next'];
+    console.log(nextPage);
+
+    let nextButton = document.createElement('button');
+    nextButton.className = 'btn-next';
+    let a = document.createElement('a')
+
+    a.setAttribute('href', nextPage);
+    nextButton.setAttribute('value', 'Next');
+    a.appendChild(nextButton);
+
+    document.querySelector('div.starwarspeople').appendChild(a)
+}
+
+function prevButton(jsonObject) {
+    let prevPage = jsonObject['previous'];
+    console.log(prevPage);
+
+    let prevButton = document.createElement('button');
+    prevButton.className = 'btn-prev';
+    let a = document.createElement('a')
+
+    a.setAttribute('href', prevPage);
+    prevButton.setAttribute('value', 'previous');
+    a.appendChild(prevButton);
+
+    document.querySelector('div.starwarspeople').appendChild(a)
+}
