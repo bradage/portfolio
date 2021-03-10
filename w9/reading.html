@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="author" content="Bradey Merrill">
+  <meta name="description" content="W2 Reading">
+
+  <link rel="stylesheet" href="css/reading.css">
+
+  <title>W4 Reading</title>
+
+</head>
+
+<body>
+  <article>
+    <section>
+      <h2>Chapter 9 The Window Object</h2>
+      <p>
+        Browser Identification - Not reliable, but cool yeah?
+      </p>
+      <p class="example">
+        window.navibator.userAgent
+      </p>
+      <p>
+        Location<br>
+        contains a few different useful properties.
+      </p>
+      <p class="example">
+        window.location.href -- can be used as read or write.<br>
+        window.location.protocol -- displays https or https<br>
+        window.location.host -- returns domain of current URL<br>
+      </p>
+      <p>
+        Did you say cookie!!!?
+      </p>
+      <p class="example">
+        created with: document.cookie = 'name=CookieMonster';
+      </p>
+      <p>
+        Splitting Cookies
+      </p>
+      <p class="example">
+        const cookies = document.cookie.split("; ");
+        for (crumb of cookies){
+        const [key,value] = crumb.split("=");
+        console.log(`The value of ${key} is ${value}`);
+        }
+      </p>
+      <p>
+        Expiring Cookies
+      </p>
+      <p class="example">
+        const expiryDate = new Date();
+        const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24;
+        expiryDate.setTime(tomorrow);
+      </p>
+      <p>
+        Secure those Cookies
+      </p>
+      <p class="example">
+        document.cookie = 'name=Batman; secure';
+      </p>
+    </section>
+    <hr>
+    <section>
+      <h2>Chapter 14 HTML5 APIS</h2>
+      <p>
+        data Attribute
+      </p>
+      <p class="example">
+        <ul>
+          <li>Start with data-</li>
+          <li>Contain only lowercase letters, numebrs, hyphens, dots, colons or underscores</li>
+          <li>Include an optional string value.</li>
+        </ul>
+        ex: <br>
+        data-powers = 'flight superSpeed'<br>
+        data-rating = '5'<br>
+        data-dropdown<br>
+        data-user = 'DAZ'<br>
+        data-max-length = '32'<br>
+      </p>
+      <p>
+        HTML5 Storage
+      </p>
+      <p class="example">
+        <ul>
+          <li>Information stored is NOT shared with teh server on every request</li>
+          <li>Information is available in multiple windows of the browser (but only if the fomain is the same)</li>
+          <li>Storage capacity limit is much larger than the 4KB limit for cookies</li>
+          <li>Any data stored does not automatically expire as it does with cookies. This
+            potentially makes cookies a better choice for something like showing a popup
+            once a day</li>
+        </ul>
+        localStorage.setItem('name', 'Walter White');<br>
+        localStorage.getItem('name');<br>
+        localStorage.name = 'Heisenberg';
+      </p>
+
+
+
+  </article>
+</body>
+
+</html>
