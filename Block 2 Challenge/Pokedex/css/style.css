@@ -1,21 +1,89 @@
-@font-face {
-    font-family: 'pokemon_hollownormal';
-    src: url('font/pokemon_hollow-webfont.woff2') format('woff2'),
-        url('font/pokemon_hollow-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+:root {
+    --red: #ff0000;
+    --dark-red: #CC0000;
+    --blue: #3b4cca;
+    --white: #ffffff;
+    --yellow: #FFDE00;
+    --dinge-yellow: #B3A125;
 }
 
-@font-face {
-    font-family: 'pokemon_solidnormal';
-    src: url('font/pokemon_solid-webfont.woff2') format('woff2'),
-        url('font/pokemon_solid-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+html {
+    background-color: var(--blue);
+}
 
+body {
+    background-color: var(--red);
+    display: block;
+    margin: 0 auto;
+    height: 100vh;
+    max-width: 1200px;
+    min-width: 800px;
+    padding-top: 0;
 }
 
 h1 {
-    font-family: pokemon_solidnormal, sans-serif;
+    font-family: pokemon_hollownormal, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+}
+
+h2 {
+    font-family: pokemon_hollownormal, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+}
+
+header h2 {
+    margin-top: -75px;
+}
+
+nav {
+    background-color: var(--yellow);
+    line-height: 2.5rem;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card {
+    display: grid;
+    grid-template: 10% 40% 5% 30% 20% / 5% 20% 55% 15% 5%;
+    background-color: var(--yellow);
+    width: 200px;
+    height: 280px;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.name {
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.hp::before {
+    content: "HP ";
+}
+
+.hp {
+    grid-column: 4/6;
+    grid-row: 1/2;
+}
+
+.img {
+    grid-column: 2/5;
+    grid-row: 2/3;
+}
+
+.info {
+    grid-column: 2/5;
+    grid-row: 3/4;
+}
+
+.abilty {
+    grid-column: 2/5;
+    grid-row: 4/5;
 }
