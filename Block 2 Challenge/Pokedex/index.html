@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pokedex</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel"stylesheet" href="css/style.css">
+</head>
+
+<header>
+    <h1>Pokemon Pokedex</h1>
+</header>
+
+<body>
+    <nav>
+        <form>
+            <label for="searchItem">Search</label>
+            <input type="text" id="searchItem" name="searchItem">
+        </form>
+        <button type="button" onclick="searchByName()" id="byName">Search By Name</button>
+    </nav>
+    <main>
+        <section class="card">
+            <ul id="pokemonList">
+
+            </ul>
+        </section>
+    </main>
+</body>
+<script src="js/main.js"></script>
+
+</html>
