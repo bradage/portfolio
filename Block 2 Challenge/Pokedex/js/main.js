@@ -75,16 +75,14 @@ function renderPokemon(pokemon){
     document.getElementById('pokemonList').appendChild(card);
 }
 
-getPokemon();
+// getPokemon();
 
 
-const searchTerm = document.getElementById('searchItem').value;
-console.log(searchTerm);
 const byNameBtn = document.getElementById('byName');
 console.log(byNameBtn);
 
 byNameBtn.addEventListener('click', function() {
-    console.log(searchTerm);
+    searchTerm = document.getElementById('searchItem').value;
     const promises = [];
         url = baseUrl + 'pokemon/' + searchTerm;
         console.log(url);
