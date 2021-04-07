@@ -1,26 +1,28 @@
 const baseUrl = 'https://pokeapi.co/api/v2/';
+const byNameBtn = document.getElementById('byName');
+const byHabitatBtn = document.getElementById('byHabitat');
 
-const getPokemon = () => {
-    const promises = [];
-    for (let i = 1; i <= 50; i++) {
-        url = baseUrl + `pokemon/${i}`;
-        promises.push(fetch(url).then((results) => results.json()));
-    }
+// const getPokemon = () => {
+//     const promises = [];
+//     for (let i = 1; i <= 50; i++) {
+//         url = baseUrl + `pokemon/${i}`;
+//         promises.push(fetch(url).then((results) => results.json()));
+//     }
 
-    Promise.all(promises).then((results) => {
-        const pokemons = results.map((data) => ({
-            name: data.name,
-            id: data.id,
-            height: data.height,
-            weight: data.weight,
-            image: data.sprites['front_default'],
-            type: data.types.map((type) => type.type.name).join(', '),
-            hp: data.stats[0].base_stat
-        }));
-        //console.log(pokemons);
-        pokemons.forEach(p => {renderPokemon(p)})
-    });
-};
+//     Promise.all(promises).then((results) => {
+//         const pokemons = results.map((data) => ({
+//             name: data.name,
+//             id: data.id,
+//             height: data.height,
+//             weight: data.weight,
+//             image: data.sprites['front_default'],
+//             type: data.types.map((type) => type.type.name).join(', '),
+//             hp: data.stats[0].base_stat
+//         }));
+//         //console.log(pokemons);
+//         pokemons.forEach(p => {renderPokemon(p)})
+//     });
+// };
 
 function renderPokemon(pokemon){
     //Create the html elements
@@ -75,17 +77,11 @@ function renderPokemon(pokemon){
     document.getElementById('pokemonList').appendChild(card);
 }
 
-// getPokemon();
-
-
-const byNameBtn = document.getElementById('byName');
-console.log(byNameBtn);
-
 byNameBtn.addEventListener('click', function() {
     searchTerm = document.getElementById('searchItem').value;
     const promises = [];
         url = baseUrl + 'pokemon/' + searchTerm;
-        console.log(url);
+        //console.log(url);
         promises.push(fetch(url).then((results) => results.json()));
 
     Promise.all(promises).then((results) => {
@@ -103,33 +99,28 @@ byNameBtn.addEventListener('click', function() {
     });
 }, false);
 
+byHabitatBtn.addEventListener('click', function() {
+    searchTerm = document.getElementById('searchItem').value;
+    const promises = [];
+        url = baseUrl + 'pokemon-habitat/' + searchTerm;
+        console.log(url);
+        promises.push(fetch(url).then((results) => results.json()));
+        console.log(promises)
+        promises.forEach(p => {push(fetch(data.pokemon_species.url).then((resSpecies) => resSpecies.json()))} );
+        console.log(resSpecies);
 
-// // function getJSON(url) {
-// //     return fetch(url)
-// //         .then(function (response) {
-// //             if (!response.ok) {
-// //                 throw Error(response.statusText);
-// //             } else {
-// //                 return response.json();
-// //             }
-// //         })
-// //         .catch(function (error) {
-// //             console.log(error);
-// //         });
-// // }
-
-// function searchByName(name = searchTerm) {
-//     // function getJSON(url) {
-//     return fetch(baseUrl + `pokemon/${name}`)
-//         .then(function (response) {
-//             if (!response.ok) {
-//                 throw Error(response.statusText);
-//             } else {
-//                 console.log(response.json());
-//                 return response.json();
-//             }
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//         });
-// }
+    Promise.all(promises).then((results) => {
+        const pokemons = results.map((data) => ({
+            species: data.pokemon_species.map((specie) => specie.name),
+            // name: push(fetch(data.pokemon_species.url).then((resSpecies) => results.json()))
+            // id: data.id,
+            // height: data.height,
+            // weight: data.weight,
+            // image: data.sprites['front_default'],
+            // type: data.types.map((type) => type.type.name).join(', '),
+            // hp: data.stats[0].base_stat
+        }));
+        console.log(pokemons);
+        // pokemons.forEach(p => {renderPokemon(p)})
+    });
+}, false);
